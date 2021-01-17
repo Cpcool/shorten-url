@@ -26,3 +26,7 @@ module.exports.getLongUrl = (req, res) => {
         }
     });
 }
+
+module.exports.home = (req, res) => {
+    return res.send("WORKING FINE")
+}
