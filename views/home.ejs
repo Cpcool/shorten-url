@@ -7,16 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>short-url</title>
     <style>
+        input::-webkit-input-placeholder {
+            font-size: 20px;
+            line-height: 3;
+        }
+
+        body {
+            margin: 300px;
+        }
+
+        button {
+            height: 40px;
+            width: 91px;
+        }
+
         div#short-url {
             color: green;
             font-weight: bold;
+        }
+
+        #url {
+            height: 34px;
+            width: 454px;
         }
     </style>
 </head>
 
 <body>
-    <input type="text" id="url" name="url" placeholder="enter your long url here"> <button onClick="getUrl()"
-        type="button">Click Me!</button>
+    <input size='34' type="text" id="url" name="url" placeholder="enter your long url here"> <button onClick="getUrl()"
+        type="button">Submit</button>
     <br>
     <br>
     <div id="short-url">
