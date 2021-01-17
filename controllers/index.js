@@ -10,7 +10,7 @@ module.exports.saveUrl = function (req, res) {
         if (err) {
             return res.send(err);
         }
-        shortUrl = 'https://chanchal-short-url.herokuapp.com/' + shortUrl
+        shortUrl = 'https://chanchal-short-url.herokuapp.com/url/' + shortUrl
         return res.send({ shortUrl, status: 200 })
     })
 };
