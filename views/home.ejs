@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>short-url</title>
+    <style>
+        div#short-url {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="url" name="url" placeholder="enter your long url here"> <button onClick="getUrl()"
+        type="button">Click Me!</button>
+    <br>
+    <br>
+    <div id="short-url">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function getUrl() {
+        let url = document.getElementById('url').value
+        if (!url)
+            return null
+        fetch('/api/v1/short-url', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url })
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                var div = document.getElementById('short-url')
+                div.innerText = result.shortUrl
+            })
+            .catch(function (error) {
+                console.log('Request failed', error);
+            });
+    }
+</script>

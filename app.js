@@ -4,7 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes')
 const app = express();
+const path = require('path')
+const ejs = require('ejs')
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 // Set up mongoose connection
 
 const mongoDB = "mongodb+srv://test:t2H0NxbaXTc89WIN@cluster0.dazk4.mongodb.net/cp-url-shortner?retryWrites=true&w=majority";
